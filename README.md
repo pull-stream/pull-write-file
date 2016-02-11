@@ -19,6 +19,13 @@ pull(
 
 ```
 
+## Performance
+
+For large buffers this is currently as fast as node's streams,
+but for lots of small buffers it's a little less.
+Node uses the fs binding's `writev` to pass many buffers to the kernel simutaniously.
+
+TODO: benchmarks with graphs comparing node streams and pull streams.
 
 ## License
 
