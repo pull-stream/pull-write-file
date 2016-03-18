@@ -1,9 +1,11 @@
 var fs = require('fs')
 
 module.exports = function (path, opts, cb) {
+  var flags = opts && opts.flags || 'a'
+  var mode = opts && opts.mode || 0666
   var pos = 0
   return function (read) {
-    fs.open(path, 'a', function (err, fd) {
+    fs.open(path, flags, mode, function (err, fd) {
       read(null, function next (end, data) {
         if(end === true) fs.close(fd, cb)
         else if(end)     cb(end) //error!
