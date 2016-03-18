@@ -3,7 +3,7 @@ var path = require('path')
 var crypto = require('crypto')
 var pull = require('pull-stream')
 var osenv = require('osenv')
-var Write = require('./')
+var Write = require('../')
 var fs = require('fs')
 
 var bytes = crypto.randomBytes(1024)
