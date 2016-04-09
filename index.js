@@ -1,6 +1,8 @@
 var fs = require('fs')
 
 module.exports = function (path, opts, cb) {
+  if('function' == typeof opts)
+    cb = opts, opts = null
   var flags = opts && opts.flags || 'a'
   var mode = opts && opts.mode || 0666
   var pos = 0
