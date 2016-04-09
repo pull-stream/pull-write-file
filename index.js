@@ -3,7 +3,7 @@ var fs = require('fs')
 module.exports = function (path, opts, cb) {
   if('function' == typeof opts)
     cb = opts, opts = null
-  var flags = opts && opts.flags || 'a'
+  var flags = opts && opts.flags || 'w'
   var mode = opts && opts.mode || 0666
   var pos = 0
   return function (read) {
