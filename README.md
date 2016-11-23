@@ -10,7 +10,7 @@ currently really simple and does not yet support all fs.createWriteStream option
 var Write = require('pull-write-stream')
 
 pull(
-  source, //must be buffers or strings!
+  source, //must be buffers (sorry, strings not working yet!)
   Write(pathToFile, {}, function (err) {
     //callback is called once write is complete,
     //and file descriptor is closed
