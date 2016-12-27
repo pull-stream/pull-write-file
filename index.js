@@ -8,6 +8,7 @@ module.exports = function (path, opts, cb) {
   var pos = 0
   return function (read) {
     fs.open(path, flags, mode, function (err, fd) {
+      if(err) return read(err)
       read(null, function next (end, data) {
         if(end === true) fs.close(fd, cb)
         else if(end)     cb(end) //error!
